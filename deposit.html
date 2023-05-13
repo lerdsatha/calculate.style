@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>deposit calculate</title>
+    <style>
+        body{
+            background-color: rgb(124, 244, 152);
+        }
+        #head {
+            font-family: phetsarath OT;
+            text-align: center;
+            border: 2px solid;
+            background-color: rgb(29, 156, 59);
+        }
+        
+
+        #font {
+            font-family: phetsarath OT;
+            font-size: 20px;
+            border: 0.5px solid;
+            padding: 6px;
+            background-color:rgb(59, 193, 91);
+            margin: 8px;
+            margin-bottom: 80px;
+            width: 400px;
+            height: 70px;
+        }
+
+        #fo {
+            font-family: phetsarath OT;
+            font-size: 20px;
+            border: 2px solid;
+            padding: 4px;
+            background-color: rgb(124,244,152);
+            color: rgb(0, 4, 7);
+        }
+
+        #submit {
+            border-radius: 7px;
+            font-size: 15px;
+            text-transform: uppercase;
+            background-color: rgb(91, 234, 136);
+            font-weight: bold;
+        }
+
+        #header {
+            font-family: phetsarath OT;
+            border: 2px solid;
+            width: 270px;
+            margin: 20px;
+            background-color:rgb(36, 148, 62);
+            height: 400px;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 18px;
+
+        }
+        input{
+            width: 200px;
+            height: 30px;
+            font-family: phetsarath OT;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="head">ຄິດໄລ່ອັດຕາດອກເບ້ຍເງິນຝາກ</h1><br>
+
+
+    <label id="fo">ອັດຕາດອກເບ້ຍເງິນຝາກ: </label><br><br>
+    <div id="font">
+        <p> - ອັດຕາດອກເບ້ຍເງິນຝາກ ແມ່ນຜົນຕອບແທນໃນການນຳເງິນມາຝາກນຳສະຖານບັນການເງິນ
+        </p>
+    </div>
+
+    <div id="header">
+
+        <span id="wape">
+            <span id="content">
+                <label>ຈຳນວນເງິນທີ່ຝາກ : </label>
+                <input id="det"><br>
+                <label>ອັດຕາດອກເບ້ຍ : </label>
+                <input id="pro"><br>
+                <label>ຈຳນວນວັນທີ່ເລີ່ມຝາກ : </label>
+                <input id="day"><br><br>
+            </span>
+            <div id="bt"> <button id="submit">submit :</button><br><br>
+                <label id="outcome" style="font-weight: bold;"></label><br>
+                <label id="out" style="font-weight: bold;"></label>
+            </div>
+        </span>
+    </div>
+
+    <script>
+        document.getElementById('submit').onclick = function () {
+            let a = document.getElementById('det').value
+            a = Number(a)
+
+            let b = document.getElementById('pro').value
+            b = Number(b)
+            let c = document.getElementById('day').value
+            c = Number(c)
+            let d = (a / 10000) * (b * 100) * c / 365
+            d = d.toLocaleString('lak', { style: 'currency', currency: 'LAK' });
+            //et f = (a / 10000) * (b * 100) * 30 / 365
+           // f = f.toLocaleString('lak', { style: 'currency', currency: 'LAK' });
+            document.getElementById('outcome').innerHTML = 'ຈຳນວນເງິນທີ່ໄດ້ : ' + d + '/ເດືອນ'
+
+          //  document.getElementById('out').innerHTML = 'ເດືອນຕໍ່ໄປ : ' + f + ' / ເດືອນ'
+
+
+        }
+    </script>
+</body>
+</html>
