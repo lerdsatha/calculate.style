@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #class{
+            font-weight: bold;
+            font-family: phetsarath OT;
+      
+        }
+        #mount{
+            font-weight: bold;
+            font-family: phetsarath OT;
+        }
+        input{
+            font-size: 15px;
+        }
+        p{
+            font-family: phetsarath OT;
+            border: 2px solid;
+            background-color: rgb(148, 148, 233);
+            text-align: center;
+            font-size: 20px;
+        }
+      
+
+    </style>
+</head>
+<p>ຄິດໄລ່DF</p>
+<body>
+    <label id="fr"> ຈຳນວນປີ </label><br>
+    <input type="text" id="rate"><br>
+    <label>ເປີເຊັນ</label><br>
+    <input type="text" id="percent"><br>
+   
+    <label>ຈຳນວນເງິນ</label><br>
+    
+    <input type="text" id="amount"><br>
+    <button id="btn"> submit</button><br>
+  
+
+   
+    <label   id="class"></label>
+    <label   id="mount"></label>
+  
+    
+    <script>
+        document.getElementById('btn').onclick = function(){
+        let second = document.getElementById('rate').value
+        second = Number(second);
+        let per = document.getElementById('percent').value
+        per = Number(per);
+        let fr = document.getElementById('amount').value
+        fr = Number(fr);
+      
+       
+        for(let i = 0; i <= second; i++){
+            let plan_a = 1 / (1+(per/100))**i
+            let plan_b = plan_a * fr;
+            plan_b= plan_b.toLocaleString('lak', { style: 'currency', currency: 'LAK' });
+        document.getElementById('class').innerHTML +='ປີທີ '+ i +' :   '+ plan_a+'<br><br>';
+        document.getElementById('mount').innerHTML +='ຈຳນວນເງິນປີທີ '+ i +' :   '+plan_b + '<br><br>'
+
+
+        }};
+       
+    </script>
+</body>
+</html>
